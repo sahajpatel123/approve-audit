@@ -1,0 +1,33 @@
+name: approve-audit
+description: List live ERC-20 approvals for an address and fail the job when any are found
+branding:
+  icon: shield
+  color: purple
+inputs:
+  owner:
+    description: Address to audit
+    required: true
+  blocks:
+    description: Blocks back to scan
+    required: false
+    default: "50000"
+  fail-on-find:
+    description: Fail the step when live approvals exist
+    required: false
+    default: "true"
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        OWNER: ${{ inputs.owner }}
+        BLOCKS: ${{ inputs.blocks }}
+        FAIL: ${{ inputs.fail-on-find }}
+      run: |
+        npm i -g approve-audit --silent 2>/dev/null || npm i approve-audit --silent
+        OUT=$(node "${{ github.action_path }}/bin/cli.js" scan --owner "$OWNER" --blocks "$BLOCKS" || true)
+        echo "$OUT"
+        if echo "$OUT" | grep -q '^LIVE'; then
+          echo "::warning::live approvals found for $OWNER"
+          [ "$FAIL" = "true" ] && exit 1
+        fi
