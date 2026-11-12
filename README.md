@@ -7,13 +7,13 @@ Wallet drainers work by asking for an allowance once and keeping it. Revoking is
 fix, but every revoker in the wild wants a wallet connection and a browser. This one does not: it
 reads the `Approval` event and builds the revoke itself.
 
-## Install
+## Run
 
 ```bash
-npm i -g approve-audit
-# or
-npx approve-audit scan --owner 0xYourAddress
+npx --yes github:sahajpatel123/approve-audit scan --owner 0xYourAddress
 ```
+
+No install, no wallet connect, no browser. Or clone and `node bin/cli.js scan --owner 0x…`.
 
 ## Use
 

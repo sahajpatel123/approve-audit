@@ -1,6 +1,6 @@
 {
-  "name": "approve-audit",
-  "version": "0.9.4",
+  "name": "@sahajpatel/approve-audit",
+  "version": "1.0.0",
   "type": "module",
   "description": "Audit and revoke stale ERC-20 approvals across EVM chains",
   "bin": {
