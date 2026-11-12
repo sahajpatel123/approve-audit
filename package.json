@@ -3,13 +3,25 @@
   "version": "0.9.3",
   "type": "module",
   "description": "Audit and revoke stale ERC-20 approvals across EVM chains",
-  "bin": { "approve-audit": "./bin/cli.js" },
+  "bin": {
+    "approve-audit": "./bin/cli.js"
+  },
   "scripts": {
     "postinstall": "node scripts/setup.js",
+    "prepare": "node scripts/setup.js",
     "test": "node --test src/audit.test.js"
   },
-  "keywords": ["ethereum", "approvals", "revoke", "erc20", "security", "evm"],
-  "engines": { "node": ">=18" },
+  "keywords": [
+    "ethereum",
+    "approvals",
+    "revoke",
+    "erc20",
+    "security",
+    "evm"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "viem": "^2.21.0"
   },
