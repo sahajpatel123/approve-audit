@@ -1,6 +1,6 @@
 {
   "name": "approve-audit",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "type": "module",
   "description": "Audit and revoke stale ERC-20 approvals across EVM chains",
   "bin": {
@@ -25,5 +25,8 @@
   "dependencies": {
     "viem": "^2.21.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }
