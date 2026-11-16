@@ -6,7 +6,7 @@
 //
 // Reads only the Approval event, so it never touches a balance and never needs an indexer.
 
-import { createPublicClient, http, parseAbi, getAddress } from 'viem'
+import { createPublicClient, http, parseAbi, parseAbiItem, getAddress } from 'viem'
 import { mainnet, arbitrum, base, optimism, polygon } from 'viem/chains'
 import { readFileSync, existsSync } from 'node:fs'
 import { homedir } from 'node:os'
