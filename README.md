@@ -13,7 +13,12 @@ reads the `Approval` event and builds the revoke itself.
 npx --yes github:sahajpatel123/approve-audit scan --owner 0xYourAddress
 ```
 
-No install, no wallet connect, no browser. Or clone and `node bin/cli.js scan --owner 0x…`.
+No install, no wallet connect, no browser. Straight from git, so it cannot break on a registry
+outage. A tarball works too:
+
+```bash
+npx --yes https://github.com/sahajpatel123/approve-audit/releases/latest/download/approve-audit-1.0.1.tgz scan --owner 0xYourAddress
+```
 
 ## Use
 
